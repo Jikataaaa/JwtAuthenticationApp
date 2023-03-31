@@ -1,14 +1,16 @@
 package com.example.JwtAuthenticationApplication.utils;
 
 import com.example.JwtAuthenticationApplication.service.JwtService;
+import com.example.JwtAuthenticationApplication.service.impl.JwtServiceImpl;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+
 public class AuthUtil {
 
-    private static JwtService jwtService;
+    private static final JwtService jwtService = new JwtServiceImpl();
     public static String validateToken(String token){
         String extractUsername;
         try {
